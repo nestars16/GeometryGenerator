@@ -64,5 +64,13 @@ void glfwUtils::MouseInfo::processUserInput(const glfwUtils::Window& window)
 }
 
 
+void glfwUtils::DefaultframeBufferCallback([[maybe_unused]]GLFWwindow* window,int width, int height)
+{
+    glfwUtils::MouseInfo* mouseCoordsPointer{static_cast<glfwUtils::MouseInfo*>(glfwGetWindowUserPointer(window))};
+    
+    mouseCoordsPointer->windowSize.first = width;
+    mouseCoordsPointer->windowSize.second = height;
 
+    glViewport(0,0,width,height);
+}
  

@@ -39,7 +39,7 @@ namespace glfwUtils
         std::pair<double,double> continousPress{0.0,0.0};
         std::pair<float,glm::vec3> rotationInfo{0.1f,glm::vec3(0.1f,0.1f,0.1f)};
         bool active{false};
-
+        std::pair<int,int> windowSize{};
         void processUserInput(const glfwUtils::Window& window);
 
     };
@@ -51,6 +51,7 @@ namespace glfwUtils
 
     std::pair<float,glm::vec3> calculateRotation(const MouseInfo& mousePos);
 
+    void DefaultframeBufferCallback([[maybe_unused]]GLFWwindow* window,int width, int height);
     
 }
 

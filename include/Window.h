@@ -14,7 +14,6 @@ namespace glfwUtils
         private:
             GLFWwindow* m_windowResource{nullptr};
             GLFWframebuffersizefun m_resizeCallback{nullptr};
-            
 
         public:
 
@@ -24,10 +23,9 @@ namespace glfwUtils
 
             operator GLFWwindow*() const {return m_windowResource;}
 
+            
 
     };
-
-    void DefaultframeBufferCallback(GLFWwindow* window,int width, int height);
 
 
 } // namespace glfwUtils

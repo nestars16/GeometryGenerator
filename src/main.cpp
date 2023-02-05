@@ -107,6 +107,7 @@ int main()
     float backgroundColors[] = {0.2f, 0.3f, 0.3f};
     float lavaLampIntensity[] = {0.2f, 0.1f, 0.9f};
     bool freeFloat{false};
+    
 
     while(!glfwWindowShouldClose(mainWindow))
     {
@@ -177,7 +178,9 @@ int main()
             glUniform1f(uniformTimeLocation,static_cast<float>(glfwGetTime()));
 
             auto resolutionUniformLocation{glGetUniformLocation(shaderArray[static_cast<std::size_t>(currentShader)].get(),"resolution")};
-            glUniform2f(resolutionUniformLocation,GeometryGeneratorConstants::windowWidth,GeometryGeneratorConstants::windowHeight);
+            glUniform2f(resolutionUniformLocation,
+            static_cast<float>(mouseInfo.windowSize.first),
+            static_cast<float>(mouseInfo.windowSize.second));
             
         }
 
