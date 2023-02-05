@@ -1,3 +1,3 @@
 # GeometryGenerator
 
-##OpenGL Geometry Visualizer
+#OpenGL Geometry Visualizer
