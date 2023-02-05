@@ -1,0 +1,3 @@
+C:/Users/NestorMartinez/OneDrive - Quality Technology/Desktop/Coding/GeometryGenerator/out/build/CMakeFiles/GeometryGenerator.dir
+C:/Users/NestorMartinez/OneDrive - Quality Technology/Desktop/Coding/GeometryGenerator/out/build/CMakeFiles/edit_cache.dir
+C:/Users/NestorMartinez/OneDrive - Quality Technology/Desktop/Coding/GeometryGenerator/out/build/CMakeFiles/rebuild_cache.dir
