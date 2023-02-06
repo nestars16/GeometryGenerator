@@ -52,7 +52,7 @@ int main()
     ImGui_ImplGlfw_InitForOpenGL(mainWindow, true);
     ImGui_ImplOpenGL3_Init("#version 330");
 
-    glfwUtils::MouseInfo mouseInfo{};
+    glfwUtils::StateInfo mouseInfo{};
     glfwSetWindowUserPointer(mainWindow,&mouseInfo);
 
     //shaders
@@ -108,6 +108,7 @@ int main()
     float lavaLampIntensity[] = {0.2f, 0.1f, 0.9f};
     bool freeFloat{false};
     
+    
 
     while(!glfwWindowShouldClose(mainWindow))
     {
@@ -120,6 +121,7 @@ int main()
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
         //rendering 
+        if(mouseInfo.drawGUI)
         {
             ImGui::Begin("Color Options");
         
@@ -132,14 +134,12 @@ int main()
             ImGui::SliderFloat3("Background Color",backgroundColors,0.0f,1.0f);
             ImGui::End();
             
-        }
-        {
+        
             ImGui::Begin("Shape");
             ImGui::RadioButton("Pyramid",&shapeState,static_cast<int>(glfwUtils::Shapes::TRIANGLE));
             ImGui::RadioButton("Cube",&shapeState,static_cast<int>(glfwUtils::Shapes::CUBE));
             ImGui::End();
-        }
-        {
+        
             ImGui::Begin("Shaders");
             ImGui::RadioButton("Color Picker",&currentShader,static_cast<int>(glfwUtils::Shaders::colorPicker));
             ImGui::RadioButton("Rainbow",&currentShader,static_cast<int>(glfwUtils::Shaders::rainbow));
@@ -147,12 +147,12 @@ int main()
             ImGui::RadioButton("Swirl",&currentShader,static_cast<int>(glfwUtils::Shaders::swirl));
 
             ImGui::End();
-        }
-        {
+        
+        
             ImGui::Begin("Options");
             ImGui::Checkbox("Free float",&freeFloat);
             ImGui::End();
-        }
+        }        
         
         glClearColor(backgroundColors[0], backgroundColors[1], backgroundColors[2], 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -198,7 +198,7 @@ int main()
         }
 
         glm::mat4 model{1.0f};
-        model = glm::rotate(model, freeFloat? static_cast<float>(glfwGetTime()): glm::radians(mouseInfo.rotationInfo.first),mouseInfo.rotationInfo.second);
+        model = glm::rotate(model, freeFloat? static_cast<float>(glfwGetTime()): glm::radians(mouseInfo.mouseRotationInfo.first),mouseInfo.mouseRotationInfo.second);
         glm::mat4 view{1.0f};
         view = glm::translate(view,glm::vec3(0.0f,sin(glfwGetTime())/6,-3.0f));
         glm::mat4 projection;
@@ -222,6 +222,8 @@ int main()
             cubeVAO.bind();
             glDrawArrays(GL_TRIANGLES,0,sizeof(GeometryGeneratorConstants::cubeVertices)/sizeof(GeometryGeneratorConstants::cubeVertices[0]));
         }
+
+        
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

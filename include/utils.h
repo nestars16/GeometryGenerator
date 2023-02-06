@@ -33,15 +33,15 @@ namespace glfwUtils
         IV
     };
 
-    struct MouseInfo
+    struct StateInfo
     {
-        std::pair<double,double> firstPress{0.0,0.0}; 
-        std::pair<double,double> continousPress{0.0,0.0};
-        std::pair<float,glm::vec3> rotationInfo{0.1f,glm::vec3(0.1f,0.1f,0.1f)};
-        bool active{false};
-        std::pair<int,int> windowSize{};
+        std::pair<double,double> mouseFirstPress{0.0,0.0}; 
+        std::pair<double,double> mouseContinousPress{0.0,0.0};
+        std::pair<float,glm::vec3> mouseRotationInfo{0.1f,glm::vec3(0.1f,0.1f,0.1f)};
+        bool mouseActive{false};
+        std::pair<int,int> windowSize{GeometryGeneratorConstants::windowWidth,GeometryGeneratorConstants::windowHeight};
         void processUserInput(const glfwUtils::Window& window);
-
+        bool drawGUI{true};
     };
 
     void mousePositionCallback(GLFWwindow* window, double xpos, double ypos);
@@ -49,9 +49,11 @@ namespace glfwUtils
     //void processMouseInput(const glfwUtils::Window& window,glfwUtils::MouseInfo& mouse);
     
 
-    std::pair<float,glm::vec3> calculateRotation(const MouseInfo& mousePos);
+    std::pair<float,glm::vec3> calculateRotation(const StateInfo& mousePos);
 
     void DefaultframeBufferCallback([[maybe_unused]]GLFWwindow* window,int width, int height);
+
+
     
 }
 
