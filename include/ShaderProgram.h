@@ -1,7 +1,16 @@
 #ifndef  SHADERPROGRAM_H
 #define SHADERPROGRAM_H
 
-#include "GLAD\glad.h"
+#ifndef __EMSCRIPTEN__
+    #include "GLAD\glad.h"
+#else
+   // unsigned int glCreateProgram();
+   // void glAttachShader(unsigned int program,unsigned int shader);
+   // void glLinkProgram(unsigned int program);
+   // void glUseProgram(unsigned int program);
+   #include <emscripten/emscripten.h>
+   #define GLFW_INCLUDE_ES3
+#endif
 #include "GLFW\glfw3.h"
 #include "Shader.h"
 

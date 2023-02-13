@@ -1,4 +1,9 @@
-#include "VertexBuffer.h"
+#ifndef __EMSCRIPTEN__
+    #include "VertexBuffer.h"
+#else
+    #include "..\include\VertexBuffer.h"
+
+#endif
 
 glfwUtils::VertexBuffer::VertexBuffer(int n, GLenum bufferType): m_bufferType{bufferType}
 {

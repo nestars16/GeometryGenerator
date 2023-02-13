@@ -1,5 +1,8 @@
-#include "VertexArray.h"
-
+#ifndef __EMSCRIPTEN__
+    #include "VertexArray.h"
+#else
+    #include "..\include\VertexArray.h"
+#endif
 
 glfwUtils::VertexArray::VertexArray(int n)
 {

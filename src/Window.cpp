@@ -1,4 +1,8 @@
-#include "Window.h"
+#ifndef __EMSCRIPTEN__
+    #include "Window.h"
+#else
+    #include "..\include\Window.h"
+#endif
 
 glfwUtils::Window::Window(GLFWwindow* resource, GLFWframebuffersizefun callback):
 m_windowResource{resource},m_resizeCallback{callback}

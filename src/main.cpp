@@ -1,4 +1,9 @@
 //cmake -S ..\..\ -B . -G "MinGW Makefiles" 
+//emcmake cmake -S ..\. -B .\wasmBuild -DCMAKE_TOOLCHAIN_FILE="C:\emsdk\upstream\emscripten\cmake\Modules\Platform\Emscripten.cmake" "-DCMAKE_EXE_LINKER_FLAGS=-s USE_WEBGL2=1 -s  FULL_ES3=1 -s USE_GLFW=3 -s WASM=1"
+// em++ -g src/main.cpp src/Shader.cpp src/utils.cpp src/VertexArray.cpp src/VertexBuffer.cpp src/Window.cpp dependencies/imgui-master/imgui_demo.cpp dependencies/imgui-master/imgui_draw.cpp dependencies/imgui-master/imgui_impl_glfw.cpp dependencies/imgui-master/imgui_impl_opengl3.cpp dependencies/imgui-master/imgui_tables.cpp dependencies/imgui-master/imgui_widgets.cpp dependencies/imgui-master/imgui.cpp -s USE_WEBGL2=1 -s FULL_ES3=1 -s USE_GLFW=3 -s WASM=1 -o GeometryGenerator.html
+//emcmake cmake -S . -B .\out\wasmBuild 
+
+
 
 #include "..\dependencies\imgui-master\imgui.h"
 #include "..\dependencies\imgui-master\imgui_impl_glfw.h"
@@ -7,24 +12,45 @@
 #include "..\dependencies\glm\glm\gtc\matrix_transform.hpp"
 #include "..\dependencies\glm\glm\gtc\type_ptr.hpp"
 
+#ifdef __EMSCRIPTEN__
+#include <emscripten/emscripten.h>
+#define GLFW_INCLUDE_ES3
+#endif
+
+
+
 //TODO
 
 //animated backgrounds
 
 //FUTURE
 //Visualizer
-
-
 #include <filesystem>
-#include "Window.h"
-#include "VertexBuffer.h"
-#include "Shader.h"
-#include "geometryGeneratorConstants.h"
-#include "glfwTest.h"
-#include "ShaderProgram.h"
-#include "VertexArray.h"
-#include "random.h"
-#include "utils.h"
+//emcmake cmake -S ..\. -B .\wasmBuild -DCMAKE_TOOLCHAIN_FILE="C:\emsdk\upstream\emscripten\cmake\Modules\Platform\Emscripten.cmake" "-DCMAKE_EXE_LINKER_FLAGS=-s USE_WEBGL2=1 -s  FULL_ES3=1 -s USE_GLFW=3 -s WASM=1"
+#ifndef __EMSCRIPTEN__
+    
+    #include "Window.h"
+    #include "VertexBuffer.h"
+    #include "Shader.h"
+    #include "geometryGeneratorConstants.h"
+    #include "glfwTest.h"
+    #include "ShaderProgram.h"
+    #include "VertexArray.h"
+    #include "random.h"
+    #include "utils.h"
+#else
+    #include "..\include\Window.h"
+    #include "..\include\VertexBuffer.h"
+    #include "..\include\Shader.h"
+    #include "..\include\geometryGeneratorConstants.h"
+    #include "..\include\glfwTest.h"
+    #include "..\include\ShaderProgram.h"
+    #include "..\include\VertexArray.h"
+    #include "..\include\random.h"
+    #include "..\include\utils.h"
+
+#endif
+
 
 int main()
 {
@@ -32,15 +58,22 @@ int main()
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     glfwUtils::Window mainWindow{glfwCreateWindow(GeometryGeneratorConstants::windowWidth,GeometryGeneratorConstants::windowHeight,"GeometryGenerator",nullptr,nullptr),glfwUtils::DefaultframeBufferCallback};
 
-    if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
-        std::cerr << "Failed to initialize GLAD\n";
-        return -1;
-    }
+
+    #ifndef __EMSCRIPTEN__
+        if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+        {
+            std::cerr << "Failed to initialize GLAD\n";
+            return -1;
+        }
+    #endif
+
+   
+
     glfwSetCursorPosCallback(mainWindow,glfwUtils::mousePositionCallback);
     glEnable(GL_DEPTH_TEST);
 
@@ -52,17 +85,20 @@ int main()
     ImGui_ImplGlfw_InitForOpenGL(mainWindow, true);
     ImGui_ImplOpenGL3_Init("#version 330");
 
-    glfwUtils::StateInfo mouseInfo{};
+     glfwUtils::StateInfo mouseInfo{};
+    
+           
+
     glfwSetWindowUserPointer(mainWindow,&mouseInfo);
 
     //shaders
-   
-    glfwUtils::Shader defaultVertex{ "../../shaders/rotational.vert",GL_VERTEX_SHADER};
+   glfwUtils::Shader defaultVertex{ "../../shaders/rotational.vert",GL_VERTEX_SHADER};
     glfwUtils::Shader colorSliderShader{   "../../shaders/colorPicker.frag",GL_FRAGMENT_SHADER};
     glfwUtils::Shader changingColorShader{"../../shaders/rainbow.frag",GL_FRAGMENT_SHADER};
     glfwUtils::Shader lavaLampShader{"../../shaders/lavaLamp.frag",GL_FRAGMENT_SHADER};
     glfwUtils::Shader swirlShader{"../../shaders/blackAndWhite.frag",GL_FRAGMENT_SHADER};
-
+    
+    
     glfwUtils::isBuildSucessful(
         static_cast<std::function<void(GLuint,GLsizei,GLsizei*,GLchar*)>>(glGetShaderInfoLog),
         static_cast<std::function<void(GLuint,GLenum,GLint*)>>(glGetShaderiv),
@@ -84,10 +120,11 @@ int main()
 
     std::array<std::reference_wrapper<glfwUtils::ShaderProgram>,static_cast<size_t>(glfwUtils::Shaders::maxShaders)> shaderArray{colorPickerProgram,rainbowProgram,lavaLampProgram,swirlProgram};
 
+
     glfwUtils::VertexArray pyramidVAO{1};
     glfwUtils::VertexBuffer pyramidVBO{1,GL_ARRAY_BUFFER};
     pyramidVBO.addData(sizeof(GeometryGeneratorConstants::pyramidComposition),GeometryGeneratorConstants::pyramidComposition,GL_STATIC_DRAW);
-    
+
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
@@ -108,11 +145,11 @@ int main()
     float lavaLampIntensity[] = {0.2f, 0.1f, 0.9f};
     bool freeFloat{false};
     
-    
 
     while(!glfwWindowShouldClose(mainWindow))
     {
 
+        
         glfwPollEvents();
 
         mouseInfo.processUserInput(mainWindow);
@@ -211,28 +248,31 @@ int main()
         auto projectionMatrixPosition{glGetUniformLocation(shaderArray[static_cast<std::size_t>(currentShader)].get(),"projection")};
         glUniformMatrix4fv(projectionMatrixPosition,1,GL_FALSE,glm::value_ptr(projection));
 
-        if(shapeState == static_cast<int>(glfwUtils::Shapes::TRIANGLE))
-        {
-            pyramidVAO.bind();
-            glDrawArrays(GL_TRIANGLES,0,sizeof(GeometryGeneratorConstants::pyramidComposition)/sizeof(GeometryGeneratorConstants::pyramidComposition[0]));
-        }
-        
-        if(shapeState == static_cast<int>(glfwUtils::Shapes::CUBE))
-        {
-            cubeVAO.bind();
-            glDrawArrays(GL_TRIANGLES,0,sizeof(GeometryGeneratorConstants::cubeVertices)/sizeof(GeometryGeneratorConstants::cubeVertices[0]));
-        }
 
-        
-
+        switch(shapeState)
+        {
+            case static_cast<int>(glfwUtils::Shapes::TRIANGLE):
+            {
+                pyramidVAO.bind();
+                glDrawArrays(GL_TRIANGLES,0,sizeof(GeometryGeneratorConstants::pyramidComposition)/sizeof(GeometryGeneratorConstants::pyramidComposition[0]));
+            }
+            break;
+            case static_cast<int>(glfwUtils::Shapes::CUBE):
+            {
+                cubeVAO.bind();
+                glDrawArrays(GL_TRIANGLES,0,sizeof(GeometryGeneratorConstants::cubeVertices)/sizeof(GeometryGeneratorConstants::cubeVertices[0]));
+            }
+            break;
+        }
+    
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         glfwSwapBuffers(mainWindow);
-        
+
     }
 
-    
     glfwTerminate();
     return 0;
+    
 }
 

@@ -1,8 +1,15 @@
 #ifndef SHADER_H
 #define  SHADER_H
 
-#include <glad/glad.h>
+
+#ifndef __EMSCRIPTEN__
+    #include <GLAD/glad.h>
+#else
+    #include <emscripten/emscripten.h>
+    #define GLFW_INCLUDE_ES3
+#endif
 #include <GLFW/glfw3.h>
+
 #include <string>
 #include <sstream>
 #include <fstream>
@@ -18,11 +25,11 @@ namespace glfwUtils
         std::string_view m_name{};
 
         public:
-            Shader(const char* shaderSource, GLenum shaderType, const GLint* length);
+            Shader(const char* shaderSource, unsigned int shaderType, const int* length);
 
-            Shader(std::string filePath, GLenum shaderType);
+            Shader(std::string filePath, unsigned int shaderType);
 
-            operator GLuint() const noexcept{return m_id;}
+            operator unsigned int() const noexcept{return m_id;}
 
             std::string_view getName() const noexcept{return m_name;};
     };

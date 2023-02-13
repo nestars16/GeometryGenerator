@@ -1,7 +1,7 @@
 CMakeFiles/GeometryGenerator.dir/src/Shader.cpp.obj: \
  C:\Users\NestorMartinez\OneDrive\ -\ Quality\ Technology\Desktop\Coding\GeometryGenerator\src\Shader.cpp \
  C:/Users/NESTOR~1/ONEDRI~1/Desktop/Coding/GEOMET~1/include/Shader.h \
- C:/Users/NESTOR~1/ONEDRI~1/Desktop/Coding/GEOMET~1/include/glad/glad.h \
+ C:/Users/NESTOR~1/ONEDRI~1/Desktop/Coding/GEOMET~1/include/GLAD/glad.h \
  C:/Users/NESTOR~1/ONEDRI~1/Desktop/Coding/GEOMET~1/include/KHR/khrplatform.h \
  C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/12.1.0/include/stdint.h \
  C:/msys64/mingw64/include/stdint.h C:/msys64/mingw64/include/crtdefs.h \

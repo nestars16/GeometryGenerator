@@ -1,5 +1,8 @@
-#include "utils.h"
-
+#ifndef __EMSCRIPTEN__
+        #include "utils.h"
+#else
+        #include "..\include\utils.h"
+#endif
 
 void glfwUtils::mousePositionCallback([[maybe_unused]]GLFWwindow* window,[[maybe_unused]] double xpos,[[maybe_unused]] double ypos)
 {

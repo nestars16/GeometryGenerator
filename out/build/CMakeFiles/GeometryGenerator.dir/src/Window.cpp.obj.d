@@ -161,6 +161,6 @@ CMakeFiles/GeometryGenerator.dir/src/Window.cpp.obj: \
  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_heap.h \
  C:/msys64/mingw64/include/c++/12.1.0/bits/stl_tempbuf.h \
  C:/msys64/mingw64/include/c++/12.1.0/bits/uniform_int_dist.h \
- C:/Users/NESTOR~1/ONEDRI~1/Desktop/Coding/GEOMET~1/include/glad/glad.h \
+ C:/Users/NESTOR~1/ONEDRI~1/Desktop/Coding/GEOMET~1/include/GLAD/glad.h \
  C:/Users/NESTOR~1/ONEDRI~1/Desktop/Coding/GEOMET~1/include/KHR/khrplatform.h \
  C:/Users/NESTOR~1/ONEDRI~1/Desktop/Coding/GEOMET~1/include/GLFW/glfw3.h

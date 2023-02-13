@@ -1,7 +1,13 @@
 #ifndef VERTEXARRAY_H
 #define VERTEXARRAY_H
 
-#include "GLAD/glad.h"
+#ifndef __EMSCRIPTEN__
+    #include "GLAD/glad.h"
+#else
+    #include <emscripten/emscripten.h>
+    #define GLFW_INCLUDE_ES3
+#endif
+
 #include "GLFW/glfw3.h"
 
 namespace glfwUtils

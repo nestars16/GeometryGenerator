@@ -1336,7 +1336,7 @@ CMakeFiles/GeometryGenerator.dir/dependencies/imgui-master/imgui_widgets.cpp.obj
 
 CMakeFiles/GeometryGenerator.dir/src/Shader.cpp.obj: C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/src/Shader.cpp \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/Shader.h \
-  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/glad/glad.h \
+  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/GLAD/glad.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/KHR/khrplatform.h \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/12.1.0/include/stdint.h \
   C:/msys64/mingw64/include/stdint.h \
@@ -1492,7 +1492,7 @@ CMakeFiles/GeometryGenerator.dir/src/Shader.cpp.obj: C:/Users/NestorMartinez/One
 
 CMakeFiles/GeometryGenerator.dir/src/VertexArray.cpp.obj: C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/src/VertexArray.cpp \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/VertexArray.h \
-  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/glad/glad.h \
+  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/GLAD/glad.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/KHR/khrplatform.h \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/12.1.0/include/stdint.h \
   C:/msys64/mingw64/include/stdint.h \
@@ -1509,7 +1509,7 @@ CMakeFiles/GeometryGenerator.dir/src/VertexArray.cpp.obj: C:/Users/NestorMartine
 
 CMakeFiles/GeometryGenerator.dir/src/VertexBuffer.cpp.obj: C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/src/VertexBuffer.cpp \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/VertexBuffer.h \
-  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/glad/glad.h \
+  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/GLAD/glad.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/KHR/khrplatform.h \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/12.1.0/include/stdint.h \
   C:/msys64/mingw64/include/stdint.h \
@@ -1692,7 +1692,7 @@ CMakeFiles/GeometryGenerator.dir/src/Window.cpp.obj: C:/Users/NestorMartinez/One
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_heap.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_tempbuf.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/uniform_int_dist.h \
-  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/glad/glad.h \
+  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/GLAD/glad.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/KHR/khrplatform.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/GLFW/glfw3.h
 
@@ -1718,7 +1718,7 @@ CMakeFiles/GeometryGenerator.dir/src/glad.c.obj: C:/Users/NestorMartinez/OneDriv
   C:/msys64/mingw64/include/errno.h \
   C:/msys64/mingw64/include/string.h \
   C:/msys64/mingw64/include/sec_api/string_s.h \
-  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/glad/glad.h \
+  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/GLAD/glad.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/KHR/khrplatform.h \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/12.1.0/include/stdint.h \
   C:/msys64/mingw64/include/stdint.h \
@@ -2365,7 +2365,7 @@ CMakeFiles/GeometryGenerator.dir/src/main.cpp.obj: C:/Users/NestorMartinez/OneDr
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_heap.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_tempbuf.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/uniform_int_dist.h \
-  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/glad/glad.h \
+  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/GLAD/glad.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/KHR/khrplatform.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/GLFW/glfw3.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/VertexBuffer.h \
@@ -2378,12 +2378,12 @@ CMakeFiles/GeometryGenerator.dir/src/main.cpp.obj: C:/Users/NestorMartinez/OneDr
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/glfwTest.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/Shader.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/ShaderProgram.h \
-  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/glad/glad.h \
+  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/GLAD/glad.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/GLFW/glfw3.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/geometryGeneratorConstants.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/ShaderProgram.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/VertexArray.h \
-  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/glad/glad.h \
+  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/GLAD/glad.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/GLFW/glfw3.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/random.h \
   C:/msys64/mingw64/include/c++/12.1.0/random \
@@ -2566,7 +2566,7 @@ CMakeFiles/GeometryGenerator.dir/src/utils.cpp.obj: C:/Users/NestorMartinez/OneD
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_heap.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/stl_tempbuf.h \
   C:/msys64/mingw64/include/c++/12.1.0/bits/uniform_int_dist.h \
-  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/glad/glad.h \
+  C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/GLAD/glad.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/KHR/khrplatform.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/GLFW/glfw3.h \
   C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/dependencies/glm/glm/glm.hpp \
@@ -3658,7 +3658,7 @@ C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/Geometry
 
 C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/src/Shader.cpp:
 
-C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/glad/glad.h:
+C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/include/GLAD/glad.h:
 
 C:/Users/NestorMartinez/OneDrive\ -\ Quality\ Technology/Desktop/Coding/GeometryGenerator/dependencies/glm/glm/ext/matrix_double3x2_precision.hpp:
 

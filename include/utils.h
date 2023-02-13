@@ -40,7 +40,7 @@ namespace glfwUtils
         std::pair<float,glm::vec3> mouseRotationInfo{0.1f,glm::vec3(0.1f,0.1f,0.1f)};
         bool mouseActive{false};
         std::pair<int,int> windowSize{GeometryGeneratorConstants::windowWidth,GeometryGeneratorConstants::windowHeight};
-        void processUserInput(const glfwUtils::Window& window);
+        void processUserInput(const glfwUtils::Window&);
         bool drawGUI{true};
     };
 

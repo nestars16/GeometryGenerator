@@ -16,7 +16,6 @@ file(GLOB_RECURSE IMGUI ${IMGUI_DIR}/*.cpp)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-
 add_executable(${CMAKE_PROJECT_NAME} ${SOURCES} ${SRC_DIR}/glad.c ${IMGUI})
 
 target_link_libraries(${CMAKE_PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/libglfw3.a)

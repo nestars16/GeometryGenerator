@@ -1,13 +1,16 @@
-#include "Shader.h"
+#ifndef __EMSCRIPTEN__
+    #include "Shader.h"
+#else
+    #include "..\include\Shader.h"
+#endif
 
-glfwUtils::Shader::Shader(const char* p_shaderSource, GLenum shaderType, const GLint* length): m_id{glCreateShader(shaderType)}
+glfwUtils::Shader::Shader(const char* p_shaderSource, unsigned int shaderType, const int* length): m_id{glCreateShader(shaderType)}
 {
-   
     glShaderSource(m_id,1,&p_shaderSource, length);
     glCompileShader(m_id);
 }
 
-glfwUtils::Shader::Shader(std::string filePath, GLenum shaderType) : m_id{glCreateShader(shaderType)} ,m_name{filePath}
+glfwUtils::Shader::Shader(std::string filePath, unsigned int shaderType) : m_id{glCreateShader(shaderType)} ,m_name{filePath}
 {
     std::ifstream shaderSourceFile{filePath};
     std::string shaderCode{};
