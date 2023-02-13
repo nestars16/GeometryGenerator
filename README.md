@@ -15,5 +15,6 @@ cd out/build & make & GeometryGenerator
 |KEY|ACTION|
 |<kbd>A-Z</kbd>| Rotate Z axis|
 |<kbd>Left Click + Drag</kbd>| Rotate X and Y axis|
+|<kbd>F1</kbd>|Hide GUI|
 
 
